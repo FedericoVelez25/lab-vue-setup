@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div>
+    <p>{{ text }}</p>
+<a :href="link">Daily Dev</a><br/>
+<button @click="newText" >Say "hi"</button>
+<input v-model="text" type="text" />
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Navbar from "./components/Navbar.vue"
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+components: {
+  Navbar
+},
+data(){
+  return {
+text: "Vue rocks",
+link: "https://daily.dev"
+  };
+},
+methods: {
+hola() {
+  console.log("Hi")
+},
+newText() {
+  this.text = ""
+}
+
+}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
